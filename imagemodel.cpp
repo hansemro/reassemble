@@ -621,9 +621,7 @@ ZBinary ImageModel::makeCode(bool offsets, bool annotate){
             asem += (".byte 0x" + HEX_PAD(image[i], 2));
             if(annotate && annotations.contains(i)){
                 asem += (" /* " + annotations[i] + " */");
-            }
-
-            if(annotate && annotations.contains(addr)){
+            } else if(annotate && annotations.contains(addr)){
                 asem += (" /* " + annotations[addr] + " */");
             }
             asem += "\n";
